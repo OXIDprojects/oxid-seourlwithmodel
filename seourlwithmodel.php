@@ -21,7 +21,8 @@ class seoUrlWithModel extends seoUrlWithModel_parent
         $sTitle = str_replace($this->_getUrlExtension(), " ".$oArticle->oxarticles__oxartnum->value, $sTitle).".".$this->_getUrlExtension();
 
         // writing category path
-        $sSeoUri = $this->_processSeoUrl($sTitle,
+        $sSeoUri = $this->_processSeoUrl(
+                            oxSeoEncoderCategory::getInstance()->getCategoryUri( $oCategory, $iLang ).$sTitle,
                             $oArticle->getId(), $iLang
                         );
         $sCatId = $oCategory->getId();
